@@ -1,0 +1,14 @@
+<h1>Recent Comments</h1>
+
+{{#each @model.comments as |comment|}}
+  <div class="comment">
+    <p class="comment-body">{{comment.body}}</p>
+    <LinkTo
+      @route={{comment.commentable.constructor.modelName}}
+      @model={{comment.commentable}}>Add comment</LinkTo>
+    <span>
+      to {{comment.commentable.title}}
+      ({{comment.commentable.constructor.modelName}})
+    </span>
+  </div>
+{{/each}}
